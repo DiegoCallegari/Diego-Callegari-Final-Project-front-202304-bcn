@@ -11,8 +11,8 @@ const theme: DefaultTheme = {
   },
 
   fonts: {
-    primary: "Metrophobic, sans-serif",
-    secondary: "Lato, sans-serif",
+    primary: "Lato, sans-serif",
+    secondary: "Metrophobic, sans-serif",
   },
 
   fontSizes: {

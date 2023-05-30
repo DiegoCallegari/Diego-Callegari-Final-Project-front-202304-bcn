@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0 auto;
     min-height: 100vh;
-    padding: 0px 20px 20px 20px;
   }
 
   h1,
