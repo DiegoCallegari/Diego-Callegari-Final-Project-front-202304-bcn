@@ -19,7 +19,6 @@ export default defineConfig({
         "**/*.test.{ts,tsx}",
         "**/types.ts",
         "**/*.d.ts",
-        "src/setupTests.ts",
         "src/main.tsx",
         "src/store/index.ts",
       ],
