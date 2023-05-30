@@ -9,6 +9,8 @@ const HeaderStyled = styled.div`
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 10px;
+  position: fixed;
+  top: 0;
 
   .header-title {
     color: ${(props) => props.theme.colors.clean};
