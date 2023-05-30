@@ -14,9 +14,8 @@ const NavigationStyled = styled.nav`
   position: fixed;
   bottom: 0;
 
-  .navigation-icono {
+  .navigation-icon {
     color: ${(props) => props.theme.colors.clean};
-    color: ${(props) => props.theme.colors.confirm};
   }
 `;
 
