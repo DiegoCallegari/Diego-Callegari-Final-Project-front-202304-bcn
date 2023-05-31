@@ -4,7 +4,7 @@ import Navigation from "./Navigation.js";
 
 describe("Given a Navigation component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show 3 links: login, create and home", () => {
+    test("Then it should show 3 links: logout, create and home", () => {
       const create = "create";
       const home = "home";
 
