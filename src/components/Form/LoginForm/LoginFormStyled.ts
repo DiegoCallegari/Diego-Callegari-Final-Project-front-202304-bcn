@@ -12,7 +12,7 @@ const LoginFormStyled = styled.form`
   padding: 20px 15px;
   gap: 60px;
 
-  .container-form {
+  .control-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -30,6 +30,21 @@ const LoginFormStyled = styled.form`
     font-weight: ${(props) => props.theme.fontWeigth.light};
     border-bottom: 1px solid ${(props) => props.theme.colors.dark};
     padding: 5px;
+  }
+
+  .login-button {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    background: ${(props) => props.theme.colors.secondaryClean};
+    border: 1px solid ${(props) => props.theme.colors.softDark};
+    color: ${(props) => props.theme.colors.softDark};
+    border-radius: 20px;
+  }
+
+  .control-button {
+    display: flex;
+    justify-content: center;
   }
 `;
 

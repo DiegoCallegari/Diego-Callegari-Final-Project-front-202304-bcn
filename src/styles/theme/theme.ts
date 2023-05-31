@@ -4,9 +4,10 @@ const theme: DefaultTheme = {
   colors: {
     clean: "#fff",
     secondaryClean: "#f2f1f6",
+    terciaryClean: "#423d3d61",
     softDark: "#423d3d",
     dark: "#1a1a1a",
-    redLight: "#ff2121",
+    redLight: "#ff212180",
     confirm: "#86b140",
   },
 

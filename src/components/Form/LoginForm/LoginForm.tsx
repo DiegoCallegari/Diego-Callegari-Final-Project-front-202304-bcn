@@ -21,7 +21,7 @@ const LoginForm = (): React.ReactElement => {
 
   return (
     <LoginFormStyled onSubmit={LoginForm}>
-      <div className="container-form">
+      <div className="control-form">
         <label className="label-form" htmlFor="username">
           Username
         </label>
@@ -33,7 +33,7 @@ const LoginForm = (): React.ReactElement => {
           placeholder="Username"
         />
       </div>
-      <div className="container-form">
+      <div className="control-form">
         <label className="label-form" htmlFor="password">
           Password
         </label>
@@ -44,6 +44,9 @@ const LoginForm = (): React.ReactElement => {
           onChange={onChangeUserLogin}
           placeholder="Password"
         />
+      </div>
+      <div className="control-button">
+        <button className="login-button">Login</button>
       </div>
     </LoginFormStyled>
   );
