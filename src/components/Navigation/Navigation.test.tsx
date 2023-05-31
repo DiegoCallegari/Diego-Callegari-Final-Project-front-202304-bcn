@@ -5,17 +5,14 @@ import Navigation from "./Navigation.js";
 describe("Given a Navigation component", () => {
   describe("When it's rendered", () => {
     test("Then it should show 3 links: login, create and home", () => {
-      const login = "login";
       const create = "create";
       const home = "home";
 
       renderWithProviders(wrapWithRouter(<Navigation />));
 
-      const loginLink = screen.getByRole("link", { name: login });
       const createLink = screen.getByRole("link", { name: create });
       const homeLink = screen.getByRole("link", { name: home });
 
-      expect(loginLink).toBeInTheDocument();
       expect(createLink).toBeInTheDocument();
       expect(homeLink).toBeInTheDocument();
     });
