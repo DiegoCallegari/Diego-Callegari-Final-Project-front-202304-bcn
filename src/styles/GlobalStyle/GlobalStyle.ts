@@ -11,9 +11,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Lato";
     font-size: 1rem;
   }
+
   body {
     margin: 0 auto;
-    min-height: 100vh;
   }
 
   h1,

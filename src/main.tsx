@@ -3,7 +3,7 @@ import "@fontsource/metrophobic";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { store } from "./store/index.js";
 import { RouterProvider } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle/GlobalStyle.js";
 import { ThemeProvider } from "styled-components";
