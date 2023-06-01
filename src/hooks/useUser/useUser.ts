@@ -1,24 +1,26 @@
 import axios from "axios";
 import { UserCredentials } from "../../store/user/types";
+import { useCallback } from "react";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_APP_URL;
 
 const useUser = () => {
-  const getUserToken = async (
-    userCredentials: UserCredentials
-  ): Promise<string> => {
-    try {
-      const { data } = await axios.post<{ token: string }>(
+  const getUserToken = useCallback(
+    async (userCredentials: UserCredentials): Promise<string> => {
+      const {
+        data: { token },
+      } = await axios.post<{ token: string }>(
         `${apiUrl}/user/login`,
         userCredentials
       );
+      return token;
+    },
+    []
+  );
 
-      return data.token;
-    } catch (error) {
-      throw new Error("Wrong credentials");
-    }
+  return {
+    getUserToken,
   };
-  return { getUserToken };
 };
 
 export default useUser;
