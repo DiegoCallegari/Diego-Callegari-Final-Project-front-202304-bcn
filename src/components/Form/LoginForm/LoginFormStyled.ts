@@ -42,9 +42,15 @@ const LoginFormStyled = styled.form`
     width: 100px;
     height: 40px;
     background: ${(props) => props.theme.colors.secondaryClean};
-    border: 1px solid ${(props) => props.theme.colors.softDark};
-    color: ${(props) => props.theme.colors.softDark};
+    border: 1px solid ${(props) => props.theme.colors.dark};
+    color: ${(props) => props.theme.colors.dark};
     border-radius: 20px;
+
+    :disabled {
+      background-color: ${(props) => props.theme.colors.clean};
+      border: 1px solid ${(props) => props.theme.colors.terciaryClean};
+      color: ${(props) => props.theme.colors.terciaryClean};
+    }
   }
 
   .control-button {

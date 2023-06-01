@@ -24,7 +24,7 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
     setUserState(userState);
   };
 
-  const isDisabled = !userState.username || !userState.password;
+  const isDisabled = userState.username !== "" && userState.password !== "";
 
   return (
     <LoginFormStyled onSubmit={handleOnClick}>
@@ -38,6 +38,7 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           id="username"
           onChange={onChangeInputs}
           placeholder="Username"
+          value={userState.username}
         />
       </div>
       <div className="control-form">
@@ -50,15 +51,11 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           id="password"
           onChange={onChangeInputs}
           placeholder="Password"
+          value={userState.password}
         />
       </div>
       <div className="control-button">
-        <button
-          className="login-button"
-          type="submit"
-          disabled={isDisabled}
-          onClick={handleOnSubmit}
-        >
+        <button className="login-button" type="submit" disabled={!isDisabled}>
           Login
         </button>
       </div>
