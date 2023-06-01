@@ -26,10 +26,15 @@ const LoginFormStyled = styled.form`
 
   .input-form {
     font-size: ${(props) => props.theme.fontSizes.small};
-    color: ${(props) => props.theme.colors.redLight};
+    color: ${(props) => props.theme.colors.dark};
     font-weight: ${(props) => props.theme.fontWeigth.light};
     border-bottom: 1px solid ${(props) => props.theme.colors.dark};
     padding: 5px;
+
+    &:focus {
+      outline: ${(props) => props.theme.colors.redLight};
+      border-bottom: solid 1px ${(props) => props.theme.colors.redLight};
+    }
   }
 
   .login-button {
