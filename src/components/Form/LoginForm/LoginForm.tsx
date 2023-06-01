@@ -39,7 +39,7 @@ const LoginForm = (): React.ReactElement => {
         </label>
         <input
           className="input-form"
-          type="text"
+          type="password"
           id="password"
           onChange={onChangeUserLogin}
           placeholder="Password"
