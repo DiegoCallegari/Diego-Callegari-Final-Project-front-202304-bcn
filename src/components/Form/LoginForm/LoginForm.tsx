@@ -1,26 +1,33 @@
 import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
 
-const LoginForm = (): React.ReactElement => {
-  interface UserLogin {
-    username: string;
-    password: string;
-  }
+interface LoginFormProps {
+  handleOnSubmit: () => void;
+}
 
-  const [userState, setUserState] = useState<UserLogin>({
+const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
+  const [userState, setUserState] = useState({
     username: "",
     password: "",
   });
 
-  const onChangeUserLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserState({
       ...userState,
       [event.target.id]: event.target.value,
     });
   };
 
+  const handleOnClick = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleOnSubmit();
+    setUserState(userState);
+  };
+
+  const isDisabled = !userState.username || !userState.password;
+
   return (
-    <LoginFormStyled onSubmit={LoginForm}>
+    <LoginFormStyled onSubmit={handleOnClick}>
       <div className="control-form">
         <label className="label-form" htmlFor="username">
           Username
@@ -29,7 +36,7 @@ const LoginForm = (): React.ReactElement => {
           className="input-form"
           type="text"
           id="username"
-          onChange={onChangeUserLogin}
+          onChange={onChangeInputs}
           placeholder="Username"
         />
       </div>
@@ -41,12 +48,19 @@ const LoginForm = (): React.ReactElement => {
           className="input-form"
           type="password"
           id="password"
-          onChange={onChangeUserLogin}
+          onChange={onChangeInputs}
           placeholder="Password"
         />
       </div>
       <div className="control-button">
-        <button className="login-button">Login</button>
+        <button
+          className="login-button"
+          type="submit"
+          disabled={isDisabled}
+          onClick={handleOnSubmit}
+        >
+          Login
+        </button>
       </div>
     </LoginFormStyled>
   );
