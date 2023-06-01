@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: "Lato";
+    font-family: "${(props) => props.theme.fonts.primary}, sans-serif";
     font-size: 1rem;
   }
 
