@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import useUser from "../useUser/useUser.js";
+import useUser from "./useUser.js";
 import { UserCredentialsMock, tokenMock } from "../../mocks/userMocks.js";
 
 describe("Given a useUser custom hook", () => {

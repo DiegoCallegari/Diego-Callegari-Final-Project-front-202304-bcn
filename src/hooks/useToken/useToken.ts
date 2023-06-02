@@ -10,8 +10,10 @@ const useToken = () => {
       username: decodedToken.name,
       token,
     };
+
     return userLoggedData;
   }, []);
+
   return { getTokenData };
 };
 

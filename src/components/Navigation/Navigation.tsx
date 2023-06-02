@@ -1,18 +1,42 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { logoutUserActionCreator } from "../../store/user/userSlice";
 
 const Navigation = (): React.ReactElement => {
+  const isLogged = useAppSelector((state) => state.user.isLogged);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const logoutOnClick = () => {
+    dispatch(logoutUserActionCreator());
+    navigate("/login");
+  };
+
   return (
     <NavigationStyled>
-      <NavLink to="/login" aria-label="login" title="login">
-        <img
-          width={48}
-          height={48}
-          className="navigation-icon"
-          src="images/login-link.svg"
-          alt="login"
-        />
-      </NavLink>
+      {isLogged ? (
+        <button className="logout" onClick={logoutOnClick}>
+          <img
+            width={50}
+            height={50}
+            className="logout-icon"
+            src="images/logout-icon.svg"
+            alt="logout"
+          />
+        </button>
+      ) : (
+        <NavLink to="/login" aria-label="login" title="login">
+          <img
+            width={48}
+            height={48}
+            className="navigation-icon"
+            src="images/login-link.svg"
+            alt="login"
+          />
+        </NavLink>
+      )}
       <NavLink to="/create" aria-label="create" title="create">
         <img
           width={48}
