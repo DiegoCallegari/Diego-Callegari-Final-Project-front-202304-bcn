@@ -2,21 +2,16 @@ import styled from "styled-components";
 
 const LoginFormStyled = styled.form`
   background-color: ${(props) => props.theme.colors.clean};
+  font-family: ${(props) => props.theme.fonts.primary};
   width: 270px;
-  height: 400px;
-  border-radius: 5% 5% 0% 0%;
-  position: fixed;
-  bottom: 65px;
+  height: 350px;
+  border-radius: 5%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px 15px;
   gap: 60px;
-
-  .control-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
 
   .label-form {
     font-size: ${(props) => props.theme.fontSizes.high};
@@ -30,6 +25,7 @@ const LoginFormStyled = styled.form`
     font-weight: ${(props) => props.theme.fontWeigth.light};
     border-bottom: 1px solid ${(props) => props.theme.colors.dark};
     padding: 5px;
+    width: 240px;
 
     &:focus {
       outline: ${(props) => props.theme.colors.redLight};
@@ -51,11 +47,6 @@ const LoginFormStyled = styled.form`
       border: 1px solid ${(props) => props.theme.colors.terciaryClean};
       color: ${(props) => props.theme.colors.terciaryClean};
     }
-  }
-
-  .control-button {
-    display: flex;
-    justify-content: center;
   }
 `;
 

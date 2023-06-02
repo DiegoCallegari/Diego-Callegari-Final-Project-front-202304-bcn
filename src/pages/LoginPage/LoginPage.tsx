@@ -4,10 +4,10 @@ import LoginPageStyled from "./LoginPageStyled";
 const LoginPage = (): React.ReactElement => {
   return (
     <LoginPageStyled>
-      <div className="page-title">
-        <h2>LOGIN</h2>
+      <h2 className="page-title">LOGIN</h2>
+      <section className="form-control">
         <LoginForm handleOnSubmit={() => ({})} />
-      </div>
+      </section>
     </LoginPageStyled>
   );
 };
