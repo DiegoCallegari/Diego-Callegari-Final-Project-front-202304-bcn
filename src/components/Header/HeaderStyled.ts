@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
-const HeaderStyled = styled.div`
+const HeaderStyled = styled.header`
   background-color: ${(props) => props.theme.colors.dark};
-  width: 100%;
-  min-width: 320px;
   height: 90px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 10px;
-  position: fixed;
   top: 0;
+  min-width: 320px;
+  width: 100%;
 
   .header-title {
     color: ${(props) => props.theme.colors.clean};

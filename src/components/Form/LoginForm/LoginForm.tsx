@@ -27,11 +27,9 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
   const isDisabled = userState.username !== "" && userState.password !== "";
 
   return (
-    <LoginFormStyled onSubmit={handleOnClick}>
-      <div className="control-form">
-        <label className="label-form" htmlFor="username">
-          Username
-        </label>
+    <LoginFormStyled onSubmit={handleOnClick} className="control-form">
+      <label className="label-form" htmlFor="username">
+        Username:
         <input
           className="input-form"
           type="text"
@@ -40,11 +38,9 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           placeholder="Username"
           value={userState.username}
         />
-      </div>
-      <div className="control-form">
-        <label className="label-form" htmlFor="password">
-          Password
-        </label>
+      </label>
+      <label className="label-form" htmlFor="password">
+        Password:
         <input
           className="input-form"
           type="password"
@@ -53,12 +49,10 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           placeholder="Password"
           value={userState.password}
         />
-      </div>
-      <div className="control-button">
-        <button className="login-button" type="submit" disabled={!isDisabled}>
-          Login
-        </button>
-      </div>
+      </label>
+      <button className="login-button" type="submit" disabled={!isDisabled}>
+        Login
+      </button>
     </LoginFormStyled>
   );
 };

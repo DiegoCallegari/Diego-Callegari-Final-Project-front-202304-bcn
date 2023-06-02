@@ -4,8 +4,8 @@ import { vi } from "vitest";
 import LoginForm from "./LoginForm";
 import { renderWithProviders, wrapWithRouter } from "../../../utils/testUtils";
 
-const username = "Username";
-const password = "Password";
+const username = "Username:";
+const password = "Password:";
 const login = "Login";
 const usernameInput = "admin";
 const userPasswordInput = "admin";

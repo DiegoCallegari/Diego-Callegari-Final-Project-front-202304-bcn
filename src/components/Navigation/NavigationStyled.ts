@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const NavigationStyled = styled.nav`
-  width: 320px;
   height: 65px;
   background-color: ${(props) => props.theme.colors.dark};
   display: flex;
