@@ -1,4 +1,4 @@
-import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
+import { RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import paths from "./paths";
 import { Suspense } from "react";
@@ -9,9 +9,8 @@ const routes: RouteObject[] = [
     path: "/",
     element: <App />,
     children: [
-      { index: true, element: <Navigate to={`${paths.user}`} replace /> },
       {
-        path: `${paths.user}`,
+        path: `${paths.login}`,
         element: (
           <Suspense>
             <LazyLoginPage />
