@@ -1,15 +1,18 @@
 import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
+import { UserCredentials } from "../../../store/user/types";
 
 interface LoginFormProps {
-  handleOnSubmit: () => void;
+  handleOnSubmit: (user: UserCredentials) => void;
 }
 
 const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
-  const [userState, setUserState] = useState({
+  const initialUserCredentials: UserCredentials = {
     username: "",
     password: "",
-  });
+  };
+
+  const [userState, setUserState] = useState(initialUserCredentials);
 
   const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserState({
@@ -20,8 +23,8 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
 
   const handleOnClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleOnSubmit();
-    setUserState(userState);
+    handleOnSubmit(userState);
+    setUserState(initialUserCredentials);
   };
 
   const isDisabled = userState.username !== "" && userState.password !== "";

@@ -17,6 +17,14 @@ const routes: RouteObject[] = [
           </Suspense>
         ),
       },
+      {
+        path: `${paths.home}`,
+        element: <p>home</p>,
+      },
+      {
+        path: `*`,
+        element: <p>Page not found</p>,
+      },
     ],
   },
 ];

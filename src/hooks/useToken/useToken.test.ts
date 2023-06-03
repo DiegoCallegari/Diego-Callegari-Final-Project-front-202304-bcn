@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { userTokenStructureMock } from "../../mocks/userMocks";
-import useToken from "../useToken/useToken";
+import useToken from "./useToken";
 
 describe("Given a useToken custom hook with a getTokenData function", () => {
   describe("When it receives a token", () => {
