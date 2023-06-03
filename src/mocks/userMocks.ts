@@ -4,7 +4,8 @@ import {
   UserTokenStructure,
 } from "../store/user/types";
 
-export const tokenMock = "abcd";
+export const tokenMock =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwODRiMjJhYTE1NTc4MjFhYmIwY2UiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODU2NDIwOTIsImV4cCI6MTY4NTcyODQ5Mn0.pDPoO6HUjooUqXwXvQuzNZ9cwQA1AOl9XChYV0vLw1Q";
 
 export const InitialStateUserMock: UserStateStructure = {
   username: "",
@@ -23,6 +24,11 @@ export const userTokenStructureMock: UserTokenStructure = {
 export const LoggedStateUserMock: UserStateStructure = {
   ...userTokenStructureMock,
   isLogged: true,
+};
+
+export const LoggedOutStateUserMock: UserStateStructure = {
+  ...userTokenStructureMock,
+  isLogged: false,
 };
 
 export const UserCredentialsMock: UserCredentials = {

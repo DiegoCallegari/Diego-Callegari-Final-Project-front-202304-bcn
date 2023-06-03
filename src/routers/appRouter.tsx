@@ -18,6 +18,10 @@ const routes: RouteObject[] = [
         ),
       },
       {
+        path: `${paths.home}`,
+        element: <p>home</p>,
+      },
+      {
         path: `*`,
         element: <p>Page not found</p>,
       },

@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
+import paths from "../../routers/paths";
 
 const Navigation = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.user.isLogged);
@@ -11,13 +12,13 @@ const Navigation = (): React.ReactElement => {
 
   const logoutOnClick = () => {
     dispatch(logoutUserActionCreator());
-    navigate("/login");
+    navigate(`${paths.home}`);
   };
 
   return (
     <NavigationStyled>
       {isLogged ? (
-        <button className="logout" onClick={logoutOnClick}>
+        <button className="logout" onClick={logoutOnClick} aria-label="logout">
           <img
             width={50}
             height={50}
