@@ -1,14 +1,18 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import paths from "./paths";
 import { Suspense } from "react";
-import LazyLoginPage from "./lazyComponents";
+import { LazyEventsListPage, LazyLoginPage } from "./lazyComponents";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        index: true,
+        element: <Navigate to="/home" replace />,
+      },
       {
         path: `${paths.login}`,
         element: (
@@ -19,7 +23,11 @@ const routes: RouteObject[] = [
       },
       {
         path: `${paths.home}`,
-        element: <p>home</p>,
+        element: (
+          <Suspense>
+            <LazyEventsListPage />
+          </Suspense>
+        ),
       },
       {
         path: `*`,

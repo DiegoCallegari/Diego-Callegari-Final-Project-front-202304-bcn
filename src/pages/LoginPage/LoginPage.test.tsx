@@ -20,6 +20,7 @@ describe("Given a LoginPage", () => {
         name: expectedText,
         level: 2,
       });
+
       expect(pageTitle).toBeInTheDocument();
     });
   });
