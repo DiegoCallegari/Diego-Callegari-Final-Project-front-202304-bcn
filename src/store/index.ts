@@ -3,14 +3,17 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./user/userSlice";
+import { eventReducer } from "./events/eventSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
+  event: eventReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
+
     preloadedState,
   });
 };

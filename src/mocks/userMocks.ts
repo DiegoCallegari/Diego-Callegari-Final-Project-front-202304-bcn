@@ -1,3 +1,4 @@
+import { EventDataStructure } from "../store/events/types";
 import {
   UserCredentials,
   UserStateStructure,
@@ -35,3 +36,24 @@ export const UserCredentialsMock: UserCredentials = {
   username: "admin",
   password: "admin",
 };
+
+export const eventsMocks: EventDataStructure[] = [
+  {
+    title: "Beach Concert",
+    image: "",
+    neighbourhood: "Marbella Beach",
+    description: "",
+    date: new Date(2023, 6, 15),
+    category: "apreciate",
+    id: "1234",
+  },
+  {
+    title: "Bunkers Sunset",
+    image: "",
+    neighbourhood: "El Carmel",
+    description: "",
+    date: new Date(2023, 6, 15),
+    category: "nature",
+    id: "5678",
+  },
+];
