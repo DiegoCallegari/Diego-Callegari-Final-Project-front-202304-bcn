@@ -19,6 +19,7 @@ const EventsListPageStyled = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    letter-spacing: 1.5px;
   }
 
   .division {
