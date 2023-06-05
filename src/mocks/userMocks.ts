@@ -51,7 +51,7 @@ export const eventsMocks: EventDataStructure[] = [
   {
     title: "Bunkers Sunset",
     image:
-      "https://cdn.discordapp.com/attachments/1096796306695008286/1115235166374350878/concierto.jpeg",
+      "https://cdn.discordapp.com/attachments/1096796306695008286/1115298838467596288/bunkers.jpg",
     neighbourhood: "El Carmel",
     description: "",
     date: "21/02/2023",
