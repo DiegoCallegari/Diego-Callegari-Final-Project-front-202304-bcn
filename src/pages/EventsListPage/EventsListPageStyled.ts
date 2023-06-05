@@ -10,7 +10,7 @@ const EventsListPageStyled = styled.main`
 
   .page-title {
     width: 100%;
-    height: 30px;
+    height: 40px;
     border-bottom: 1px solid ${(props) => props.theme.colors.redLight};
     background-color: ${(props) => props.theme.colors.clean};
     color: ${(props) => props.theme.colors.softDark};
