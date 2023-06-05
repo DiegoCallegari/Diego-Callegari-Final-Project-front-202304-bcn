@@ -1,11 +1,11 @@
 import { EventDataStructure } from "../../store/events/types";
-import CardStyled from "./CardSyle";
+import CardStyled from "./EventCardSyle";
 
 interface EventProps {
   event: EventDataStructure;
 }
 
-const Card = ({ event }: EventProps): React.ReactElement => {
+const EventCard = ({ event }: EventProps): React.ReactElement => {
   return (
     <CardStyled>
       <img
@@ -23,4 +23,4 @@ const Card = ({ event }: EventProps): React.ReactElement => {
   );
 };
 
-export default Card;
+export default EventCard;
