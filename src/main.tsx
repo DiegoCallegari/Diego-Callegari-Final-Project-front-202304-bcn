@@ -1,4 +1,6 @@
 import "@fontsource/lato";
+import "@fontsource/lato/700.css";
+import "@fontsource/lato/400.css";
 import "@fontsource/metrophobic";
 import React from "react";
 import ReactDOM from "react-dom/client";
