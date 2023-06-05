@@ -16,7 +16,8 @@ const CardStyled = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    height: 70px;
+    min-width: 120px;
+    min-height: 70px;
     padding: 10px;
     border-radius: 0 5px 5px 0;
     background-color: ${(props) => props.theme.colors.clean};
