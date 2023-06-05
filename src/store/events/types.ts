@@ -3,7 +3,7 @@ export interface EventDataStructure {
   image: string;
   neighbourhood: string;
   description: string;
-  date: Date;
+  date: string;
   category: string;
   id: string;
 }

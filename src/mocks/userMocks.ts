@@ -39,20 +39,22 @@ export const UserCredentialsMock: UserCredentials = {
 
 export const eventsMocks: EventDataStructure[] = [
   {
-    title: "Beach Concert",
-    image: "",
-    neighbourhood: "Marbella Beach",
+    title: "Concert",
+    image:
+      "https://cdn.discordapp.com/attachments/1096796306695008286/1115235166374350878/concierto.jpeg",
+    neighbourhood: "El Born",
     description: "",
-    date: new Date(2023, 6, 15),
+    date: "21/02/2023",
     category: "apreciate",
     id: "1234",
   },
   {
     title: "Bunkers Sunset",
-    image: "",
+    image:
+      "https://cdn.discordapp.com/attachments/1096796306695008286/1115235166374350878/concierto.jpeg",
     neighbourhood: "El Carmel",
     description: "",
-    date: new Date(2023, 6, 15),
+    date: "21/02/2023",
     category: "nature",
     id: "5678",
   },
