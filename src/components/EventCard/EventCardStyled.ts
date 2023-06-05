@@ -21,6 +21,13 @@ const CardStyled = styled.div`
     padding: 10px;
     border-radius: 0 5px 5px 0;
     background-color: ${(props) => props.theme.colors.clean};
+
+    &__button-control {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
   .card-describe__title {
@@ -33,6 +40,11 @@ const CardStyled = styled.div`
     font-family: ${(props) => props.theme.fonts.primary};
     font-weight: ${(props) => props.theme.fontWeigth.regular};
     font-size: ${(props) => props.theme.fontSizes.small};
+  }
+
+  .button-control {
+    display: flex;
+    flex-direction: row;
   }
 `;
 
