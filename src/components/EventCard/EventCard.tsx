@@ -1,5 +1,5 @@
 import { EventDataStructure } from "../../store/events/types";
-import CardStyled from "./EventCardSyle";
+import CardStyled from "./EventCardSyled";
 
 interface EventProps {
   event: EventDataStructure;
