@@ -25,7 +25,7 @@ const EventCard = ({ event }: EventProps): React.ReactElement => {
               width={25}
               height={25}
               src="/icons/edit.svg"
-              alt="delete"
+              alt="edit"
               className="img"
             />
           </Button>
