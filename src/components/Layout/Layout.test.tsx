@@ -18,3 +18,19 @@ describe("Given a Layout component", () => {
     });
   });
 });
+
+describe("Given a Layout component", () => {
+  describe("When it takes much time to render", () => {
+    test("Then it should shows a loader ", () => {
+      const expectedLabelText = "loader";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: { isLoading: true },
+      });
+
+      const loadingSpinner = screen.getByLabelText(expectedLabelText);
+
+      expect(loadingSpinner).toBeInTheDocument();
+    });
+  });
+});
