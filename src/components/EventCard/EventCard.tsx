@@ -17,7 +17,7 @@ const EventCard = ({ event }: EventProps): React.ReactElement => {
         height={90}
       />
       <section className="card-describe">
-        <div className="card-describe__control">
+        <div className="control_title">
           <h3 className="card-describe__title">{event.title}</h3>
           <span className="card-describe__subtitle">{event.neighbourhood}</span>
         </div>
