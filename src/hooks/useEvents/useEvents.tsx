@@ -1,25 +1,39 @@
 import axios from "axios";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { EventDataStructure } from "../../store/events/types";
 import { EventState } from "../../store/events/eventSlice";
 import { apiUrl } from "../useUser/useUser";
+import { useCallback } from "react";
+import {
+  hideLoadingActionCreator,
+  showLoadingActionCreator,
+} from "../../store/ui/uiSlice";
 
 const useEvents = () => {
   const { token } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
-  const getEvents = async (): Promise<EventDataStructure[]> => {
-    const request = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+  const getEvents = useCallback(async (): Promise<EventDataStructure[]> => {
+    try {
+      dispatch(showLoadingActionCreator());
 
-    const {
-      data: { events },
-    } = await axios.get<EventState>(`${apiUrl}/events`, request);
+      const request = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
 
-    return events;
-  };
+      const {
+        data: { events },
+      } = await axios.get<EventState>(`${apiUrl}/events`, request);
+      dispatch(hideLoadingActionCreator());
+
+      return events;
+    } catch {
+      throw new Error("Can't get the list of events at this moment");
+    }
+  }, [dispatch, token]);
+
   return { getEvents };
 };
 
