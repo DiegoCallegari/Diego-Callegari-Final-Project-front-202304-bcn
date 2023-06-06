@@ -18,8 +18,8 @@ const theme: DefaultTheme = {
 
   fontSizes: {
     super: "40px",
-    high: "24px",
-    medium: "20px",
+    high: "20px",
+    medium: "18px",
     small: "16px",
   },
 
