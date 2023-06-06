@@ -1,13 +1,20 @@
+import { useEffect } from "react";
 import EventList from "../../components/EventsList/EventsList";
-import { eventsMocks } from "../../mocks/userMocks";
 import { useAppDispatch } from "../../store";
 import { loadEventsActionCreator } from "../../store/events/eventSlice";
 import EventsListPageStyled from "./EventsListPageStyled";
+import useEvents from "../../hooks/useEvents/useEvents";
 
 const EventsListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const { getEvents } = useEvents();
 
-  dispatch(loadEventsActionCreator(eventsMocks));
+  useEffect(() => {
+    (async () => {
+      const events = await getEvents();
+      if (events) dispatch(loadEventsActionCreator(events));
+    })();
+  }, [dispatch, getEvents]);
 
   return (
     <EventsListPageStyled>

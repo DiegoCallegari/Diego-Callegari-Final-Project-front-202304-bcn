@@ -1,4 +1,4 @@
-import { eventsMocks } from "../../mocks/userMocks";
+import { eventsMocks } from "../../mocks/eventsMocks";
 import {
   EventState,
   eventReducer,

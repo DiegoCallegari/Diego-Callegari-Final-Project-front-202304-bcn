@@ -31,8 +31,8 @@ const EventCard = ({ event }: EventProps): React.ReactElement => {
           </Button>
           <Button accessibility="delete" className="delete-button">
             <img
-              width={25}
-              height={25}
+              width={23}
+              height={23}
               src="/icons/delete.svg"
               alt="delete"
               className="img"

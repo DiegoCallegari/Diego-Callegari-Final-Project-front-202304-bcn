@@ -12,6 +12,8 @@ const CardStyled = styled.div`
   }
 
   .card-describe {
+    width: 270px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

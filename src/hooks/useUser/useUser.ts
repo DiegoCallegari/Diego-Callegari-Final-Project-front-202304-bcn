@@ -3,7 +3,7 @@ import { UserCredentials } from "../../store/user/types";
 import paths from "../../routers/paths";
 import { useCallback } from "react";
 
-const apiUrl = import.meta.env.VITE_APP_URL;
+export const apiUrl = import.meta.env.VITE_APP_URL;
 
 const useUser = () => {
   const getUserToken = useCallback(

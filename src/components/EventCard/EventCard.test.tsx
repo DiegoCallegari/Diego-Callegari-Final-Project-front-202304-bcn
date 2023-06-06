@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
-import { eventsMocks } from "../../mocks/userMocks";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import EventCard from "./EventCard";
+import { eventsMocks } from "../../mocks/eventsMocks";
 
 describe("Given a EventCard component", () => {
   describe("When it's rendered", () => {

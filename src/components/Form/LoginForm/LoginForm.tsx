@@ -38,7 +38,6 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           type="text"
           id="username"
           onChange={onChangeInputs}
-          placeholder="Username"
           value={userState.username}
         />
       </label>
@@ -49,7 +48,6 @@ const LoginForm = ({ handleOnSubmit }: LoginFormProps): React.ReactElement => {
           type="password"
           id="password"
           onChange={onChangeInputs}
-          placeholder="Password"
           value={userState.password}
         />
       </label>
