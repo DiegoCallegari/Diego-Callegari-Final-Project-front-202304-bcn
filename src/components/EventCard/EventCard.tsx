@@ -17,8 +17,10 @@ const EventCard = ({ event }: EventProps): React.ReactElement => {
         height={90}
       />
       <section className="card-describe">
-        <h3 className="card-describe__title">{event.title}</h3>
-        <span className="card-describe__subtitle">{event.neighbourhood}</span>
+        <div className="card-describe__control">
+          <h3 className="card-describe__title">{event.title}</h3>
+          <span className="card-describe__subtitle">{event.neighbourhood}</span>
+        </div>
         <div className="card-describe__button-control">
           <Button accessibility="edit" className="edit-button">
             <img
