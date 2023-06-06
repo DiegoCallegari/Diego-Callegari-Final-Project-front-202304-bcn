@@ -3,10 +3,10 @@ import styled from "styled-components";
 const EventsListPageStyled = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
   min-width: 320px;
-  gap: 25px;
+  gap: 5px;
+  padding-bottom: 70px;
 
   .page-title {
     width: 100%;
@@ -21,38 +21,6 @@ const EventsListPageStyled = styled.main`
     align-items: center;
     justify-content: center;
     letter-spacing: 1.5px;
-  }
-
-  .linea-control {
-    display: flex;
-    flex-direction: row-reverse;
-    position: absolute;
-    margin-right: 0;
-    gap: 20px;
-  }
-
-  .linea-1 {
-    border-left: 3px solid ${(props) => props.theme.colors.redLight};
-    height: 400px;
-    display: flex;
-  }
-
-  .linea-2 {
-    border-left: 3px solid ${(props) => props.theme.colors.redLight};
-    height: 400px;
-    display: flex;
-  }
-
-  .linea-3 {
-    border-left: 3px solid ${(props) => props.theme.colors.redLight};
-    height: 400px;
-    display: flex;
-  }
-
-  .linea-4 {
-    border-left: 3px solid ${(props) => props.theme.colors.redLight};
-    height: 400px;
-    display: flex;
   }
 `;
 
