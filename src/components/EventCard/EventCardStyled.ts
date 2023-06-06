@@ -8,7 +8,7 @@ const CardStyled = styled.div`
   background-color: ${(props) => props.theme.colors.clean};
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .card-image {
     width: 150px;

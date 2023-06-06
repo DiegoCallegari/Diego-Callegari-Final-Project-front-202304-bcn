@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  ul {
+  ul, li {
     list-style: none;
     padding-left: 0;
     margin: 0;
