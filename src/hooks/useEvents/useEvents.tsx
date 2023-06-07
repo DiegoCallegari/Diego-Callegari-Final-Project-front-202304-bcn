@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { EventDataStructure } from "../../store/events/types";
-import { EventState } from "../../store/events/eventSlice";
+import { EventDataStructure, EventState } from "../../store/events/types";
 import { apiUrl } from "../useUser/useUser";
 import { useCallback } from "react";
 import {

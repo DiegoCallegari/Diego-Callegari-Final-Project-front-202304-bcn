@@ -7,3 +7,7 @@ export interface EventDataStructure {
   category: string;
   id: string;
 }
+
+export interface EventState {
+  events: EventDataStructure[];
+}
