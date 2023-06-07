@@ -1,10 +1,6 @@
 import { eventsMocks } from "../../mocks/eventsMocks";
-import {
-  EventState,
-  eventReducer,
-  loadEventsActionCreator,
-} from "./eventSlice";
-import { EventDataStructure } from "./types";
+import { eventReducer, loadEventsActionCreator } from "./eventSlice";
+import { EventDataStructure, EventState } from "./types";
 
 describe("Given an eventReducer", () => {
   describe("When it receives an empty initial state and a loadEvents action", () => {

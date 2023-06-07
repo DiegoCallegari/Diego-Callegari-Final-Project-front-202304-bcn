@@ -1,9 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { EventDataStructure } from "./types";
-
-export interface EventState {
-  events: EventDataStructure[];
-}
+import { EventDataStructure, EventState } from "./types";
 
 export const eventInitialState: EventState = {
   events: [],
