@@ -3,8 +3,8 @@ import NotFoundPageStyled from "./NotFoundPageStyled";
 const NotFoundPage = (): React.ReactElement => {
   return (
     <NotFoundPageStyled className="not-found">
-      <span>Error 404</span>
-      <span>NOT FOUND</span>
+      <h1>Error 404</h1>
+      <span>Page not found</span>
     </NotFoundPageStyled>
   );
 };
