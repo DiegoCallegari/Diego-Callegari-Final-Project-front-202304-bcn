@@ -18,17 +18,16 @@ const Modal = (): React.ReactElement => {
   };
 
   return (
-    <ModalStyled className="modal-feedback" aria-label="feedback modal">
+    <ModalStyled aria-label="feedback modal">
       <div
-        className={`modal-feedback__title${
+        className={`modal-feedback modal-feedback__title${
           isError ? "modal-feedback__title--error" : ""
         }`}
-      ></div>
-      <section className="modal-feedback__describe">
-        <h2 className="modal-feedback__name">{title}</h2>
-        <span className="modal-feedback__text">{text}</span>
-      </section>
-      <div className="error-close__button">
+      >
+        <section className="modal-feedback__describe">
+          <h2 className="modal-feedback__title">{title}</h2>
+          <span className="modal-feedback__text">{text}</span>
+        </section>
         <Button
           className="error-close"
           accessibility="close"
