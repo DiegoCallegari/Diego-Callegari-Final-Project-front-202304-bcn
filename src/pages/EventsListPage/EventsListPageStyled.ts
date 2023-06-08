@@ -3,6 +3,7 @@ import styled from "styled-components";
 const EventsListPageStyled = styled.main`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   min-width: 320px;
   gap: 5px;

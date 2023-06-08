@@ -25,12 +25,34 @@ describe("Given a Layout component", () => {
       const expectedLabelText = "loader";
 
       renderWithProviders(wrapWithRouter(<Layout />), {
-        ui: { isLoading: true },
+        ui: {
+          isLoading: true,
+          modal: { isError: false, title: "", text: "", isVisible: false },
+        },
       });
 
       const loadingSpinner = screen.getByLabelText(expectedLabelText);
 
       expect(loadingSpinner).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's being rendered, but you write something wrong", () => {
+    test("Then it should show close", () => {
+      const expectedLabelText = "close";
+
+      renderWithProviders(wrapWithRouter(<Layout />), {
+        ui: {
+          isLoading: true,
+          modal: { isError: false, title: "", text: "", isVisible: true },
+        },
+      });
+
+      const button = screen.getByRole("button", {
+        name: expectedLabelText,
+      });
+
+      expect(button).toBeInTheDocument();
     });
   });
 });
