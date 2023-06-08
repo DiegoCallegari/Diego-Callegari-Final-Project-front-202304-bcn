@@ -12,7 +12,18 @@ const EventsListPage = (): React.ReactElement => {
   useEffect(() => {
     (async () => {
       const events = await getEvents();
-      if (events) dispatch(loadEventsActionCreator(events));
+      if (events) {
+        dispatch(loadEventsActionCreator(events));
+
+        const preconnectElement = await document.createElement("link");
+        preconnectElement.rel = "preload";
+        preconnectElement.as = "image";
+        preconnectElement.href = events[0].image;
+
+        const parent = document.head;
+        const firstChild = document.head.firstChild;
+        parent.insertBefore(preconnectElement, firstChild);
+      }
     })();
   }, [dispatch, getEvents]);
 
