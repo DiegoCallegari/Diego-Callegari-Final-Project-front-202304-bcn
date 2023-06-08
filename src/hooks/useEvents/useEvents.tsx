@@ -12,7 +12,9 @@ const useEvents = () => {
   const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
-  const getEvents = useCallback(async (): Promise<EventDataStructure[]> => {
+  const getEvents = useCallback(async (): Promise<
+    EventDataStructure[] | undefined
+  > => {
     try {
       dispatch(showLoadingActionCreator());
 
