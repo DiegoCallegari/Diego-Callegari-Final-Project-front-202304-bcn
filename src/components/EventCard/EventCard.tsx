@@ -4,12 +4,14 @@ import CardStyled from "./EventCardStyled";
 
 interface EventProps {
   event: EventDataStructure;
+  isLazy?: "eager" | "lazy";
 }
 
-const EventCard = ({ event }: EventProps): React.ReactElement => {
+const EventCard = ({ event, isLazy }: EventProps): React.ReactElement => {
   return (
     <CardStyled>
       <img
+        loading={isLazy}
         className="card-image"
         src={event.image}
         alt={event.title}

@@ -8,6 +8,7 @@ declare module "styled-components" {
       terciaryClean: string;
       softDark: string;
       dark: string;
+      red: string;
       redLight: string;
       confirm: string;
     };

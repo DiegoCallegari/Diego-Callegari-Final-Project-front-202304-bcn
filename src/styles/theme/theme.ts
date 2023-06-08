@@ -7,6 +7,7 @@ const theme: DefaultTheme = {
     terciaryClean: "#423d3d61",
     softDark: "#423d3d",
     dark: "#1a1a1a",
+    red: "#ff2121cf",
     redLight: "#ff212180",
     confirm: "#86b140",
   },

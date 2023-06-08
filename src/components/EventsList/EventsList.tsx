@@ -7,9 +7,9 @@ const EventList = (): React.ReactElement => {
 
   return (
     <EventListStyled>
-      {events.map((event) => (
+      {events.map((event, index) => (
         <li key={event.id}>
-          <EventCard event={event} />
+          <EventCard event={event} isLazy={index < 1 ? "eager" : "lazy"} />
         </li>
       ))}
     </EventListStyled>

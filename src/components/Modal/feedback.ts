@@ -41,3 +41,10 @@ export const wrongCredentials: ModalStructure = {
   title: "Wrong credentials",
   text: "Username or password doesn't match",
 };
+
+export const notAvailableList: ModalStructure = {
+  isError: true,
+  isVisible: false,
+  title: "Not available!",
+  text: "Can't get the list of events",
+};
