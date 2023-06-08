@@ -7,11 +7,19 @@ const ModalStyled = styled.section`
   border: 1px solid ${(props) => props.theme.colors.redLight};
   border-radius: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  padding: 15px;
 
   .modal-feedback {
+    &__describe {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     &__name {
       font-size: ${(props) => props.theme.fontSizes.medium};
     }
@@ -20,11 +28,21 @@ const ModalStyled = styled.section`
       font-size: ${(props) => props.theme.fontSizes.small};
     }
 
-    &__error-close {
-      width: 30px;
-      height: 30px;
-      border-radius: 100%;
-      border: 1px solid ${(props) => props.theme.colors.dark};
+    &__title--error {
+      background-color: red;
+    }
+  }
+
+  .error-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 1px solid ${(props) => props.theme.colors.dark};
+
+    &__button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 `;
