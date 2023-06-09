@@ -11,3 +11,7 @@ export interface EventDataStructure {
 export interface EventState {
   events: EventDataStructure[];
 }
+
+export interface EventIdStructure {
+  idEvent: string;
+}
