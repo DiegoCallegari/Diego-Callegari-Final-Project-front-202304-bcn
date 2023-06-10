@@ -1,6 +1,7 @@
 import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
+  text?: string;
   className?: string;
   onClick?: () => void;
   accessibility: string;
@@ -8,7 +9,8 @@ interface ButtonProps {
 }
 
 const Button = ({
-  onClick,
+  text,
+  onClick: onClick,
   className,
   accessibility,
   children,
@@ -20,6 +22,7 @@ const Button = ({
       aria-label={accessibility}
     >
       {children}
+      {text}
     </ButtonStyled>
   );
 };

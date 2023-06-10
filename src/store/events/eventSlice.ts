@@ -26,6 +26,8 @@ const eventSlice = createSlice({
   },
 });
 
-export const { loadEvents: loadEventsActionCreator } = eventSlice.actions;
-export const { deleteEvent: deleteEventActionCreator } = eventSlice.actions;
+export const {
+  loadEvents: loadEventsActionCreator,
+  deleteEvent: deleteEventActionCreator,
+} = eventSlice.actions;
 export const eventReducer = eventSlice.reducer;
