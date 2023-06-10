@@ -1,7 +1,8 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import EventList from "./EventsList";
-import { eventsMocks } from "../../mocks/eventsMocks";
+import { EventMockCard, eventsMocks } from "../../mocks/eventsMocks";
+import userEvent from "@testing-library/user-event";
 
 describe("Given an EventList component", () => {
   describe("When it is rendered", () => {
@@ -19,6 +20,24 @@ describe("Given an EventList component", () => {
       const title = screen.getByRole("heading", { name: expectedText });
 
       expect(title).toBeInTheDocument();
+    });
+  });
+
+  describe("When it is rendered and the button delete is clicked", () => {
+    test("Then it should show a list without the deleted event", async () => {
+      const eventStore = {
+        event: {
+          events: EventMockCard,
+        },
+      };
+      renderWithProviders(<EventList />, eventStore);
+
+      const heading = screen.getByRole("heading", { name: "Concert" });
+      const deleteButton = screen.getByRole("button", { name: "delete" });
+
+      await userEvent.click(deleteButton);
+
+      expect(heading).not.toBeInTheDocument();
     });
   });
 });

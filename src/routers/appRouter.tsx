@@ -34,7 +34,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: `/*`,
+        path: `*`,
         element: (
           <Suspense>
             <LazyEventNotFoundPage />

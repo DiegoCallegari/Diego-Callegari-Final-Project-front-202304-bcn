@@ -1,5 +1,9 @@
 import { eventsMocks } from "../../mocks/eventsMocks";
-import { eventReducer, loadEventsActionCreator } from "./eventSlice";
+import {
+  deleteEventActionCreator,
+  eventReducer,
+  loadEventsActionCreator,
+} from "./eventSlice";
 import { EventDataStructure, EventState } from "./types";
 
 describe("Given an eventReducer", () => {
@@ -18,6 +22,28 @@ describe("Given an eventReducer", () => {
 
       const newState: EventState = eventReducer(currentEvent, events);
       expect(expectedNewEventsState).toStrictEqual(newState);
+    });
+  });
+
+  describe("When it receives a list of events and a deleteEvent action", () => {
+    test("Then it should return the new state with a list of 1 event", () => {
+      const currentEvent: EventState = {
+        events: eventsMocks,
+      };
+
+      const expectedNewEventState = {
+        ...currentEvent,
+        events: eventsMocks.slice(1),
+      };
+
+      const newEventState = eventReducer(
+        currentEvent,
+        deleteEventActionCreator({
+          idEvent: "1234",
+        })
+      );
+
+      expect(newEventState).toStrictEqual(expectedNewEventState);
     });
   });
 });

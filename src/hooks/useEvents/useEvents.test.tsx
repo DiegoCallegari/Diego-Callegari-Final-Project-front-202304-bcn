@@ -3,7 +3,17 @@ import useEvents from "./useEvents";
 import { wrapper } from "../../utils/testUtils";
 import { eventsMocks } from "../../mocks/eventsMocks";
 import { server } from "../../mocks/server";
-import { errorHandlers } from "../../mocks/handlers";
+import { errorHandlers, handlers } from "../../mocks/handlers";
+import { store } from "../../store";
+import {
+  isDeletedEvent,
+  isNotDeletedEvent,
+} from "../../components/Modal/feedback";
+import { vi } from "vitest";
+
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 
 describe("Given a useEvents custom hook", () => {
   describe("When is called with the getEvents function", () => {
@@ -36,6 +46,48 @@ describe("Given a useEvents custom hook", () => {
 
         expect(events).rejects.toThrowError(expectedError);
       });
+    });
+  });
+});
+
+describe("Given a deleteEvent custom hook", () => {
+  describe("When it is invoked with a valid event id", () => {
+    test("Then it should show a modal with the text 'Event deleted!'", async () => {
+      server.resetHandlers(...handlers);
+
+      const id = eventsMocks[0].id;
+
+      const {
+        result: {
+          current: { deleteEvent },
+        },
+      } = renderHook(() => useEvents(), { wrapper: wrapper });
+
+      await deleteEvent(id);
+
+      const text = store.getState().ui.modal.text;
+
+      expect(text).toBe(isDeletedEvent.text);
+    });
+  });
+
+  describe("When it is invoked with an invalid event id", () => {
+    test("Then it should show a modal with the text 'Event coudn't be deleted'", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const id = eventsMocks[0].id;
+
+      const {
+        result: {
+          current: { deleteEvent },
+        },
+      } = renderHook(() => useEvents(), { wrapper: wrapper });
+
+      await deleteEvent(id);
+
+      const text = store.getState().ui.modal.text;
+
+      expect(text).toBe(isNotDeletedEvent.text);
     });
   });
 });

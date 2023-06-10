@@ -2,12 +2,17 @@ import { EventDataStructure } from "../../store/events/types";
 import Button from "../Button/Button";
 import CardStyled from "./EventCardStyled";
 
-interface EventProps {
+interface EventCardProps {
   event: EventDataStructure;
+  actionOnClick: (idEvent: string) => void;
   isLazy?: "eager" | "lazy";
 }
 
-const EventCard = ({ event, isLazy }: EventProps): React.ReactElement => {
+const EventCard = ({
+  event,
+  actionOnClick,
+  isLazy,
+}: EventCardProps): React.ReactElement => {
   return (
     <CardStyled>
       <img
@@ -33,7 +38,11 @@ const EventCard = ({ event, isLazy }: EventProps): React.ReactElement => {
               className="img"
             />
           </Button>
-          <Button accessibility="delete" className="delete-button">
+          <Button
+            accessibility="delete"
+            className="delete-button"
+            onClick={() => actionOnClick(event.id)}
+          >
             <img
               width={23}
               height={23}

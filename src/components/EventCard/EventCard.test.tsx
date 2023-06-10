@@ -8,7 +8,15 @@ describe("Given a EventCard component", () => {
     test("Then it should show a event's image with the same alternative text than the title", () => {
       const expectAltTextImage = eventsMocks[0].title;
 
-      renderWithProviders(wrapWithRouter(<EventCard event={eventsMocks[0]} />));
+      renderWithProviders(
+        wrapWithRouter(
+          <EventCard
+            isLazy={eventsMocks.indexOf(eventsMocks[0]) < 1 ? "eager" : "lazy"}
+            actionOnClick={() => ({})}
+            event={eventsMocks[0]}
+          />
+        )
+      );
       const expectedImage = screen.getByRole("img", {
         name: expectAltTextImage,
       });
