@@ -22,7 +22,7 @@ export const handlers = [
   rest.delete(
     `${apiUrl}${paths.events}/${eventsMocks[0].id}`,
     (_req, res, ctx) => {
-      return res(ctx.status(401));
+      return res(ctx.status(200), ctx.json({ message: "Event removed!" }));
     }
   ),
 ];
@@ -39,7 +39,10 @@ export const errorHandlers = [
   rest.delete(
     `$${apiUrl}${paths.events}/${eventsMocks[0].id}`,
     (_req, res, ctx) => {
-      return res(ctx.status(404));
+      return res(
+        ctx.status(404),
+        ctx.json({ text: "Event coudn't be deleted" })
+      );
     }
   ),
 ];
