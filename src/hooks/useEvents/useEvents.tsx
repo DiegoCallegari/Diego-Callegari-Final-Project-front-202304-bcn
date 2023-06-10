@@ -24,7 +24,7 @@ const useEvents = () => {
     try {
       dispatch(showLoadingActionCreator());
 
-      const request = {
+      const req = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -32,7 +32,7 @@ const useEvents = () => {
 
       const {
         data: { events },
-      } = await axios.get<EventState>(`${apiUrl}/events`, request);
+      } = await axios.get<EventState>(`${apiUrl}/events`, req);
 
       dispatch(hideLoadingActionCreator());
 

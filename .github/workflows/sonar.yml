@@ -18,9 +18,9 @@ jobs:
       - name: Coverage
         run: npm run test:coverage
         env:
-          VITE_APP_URL: ${ secrets.VITE_APP_URL }
+          VITE_APP_URL: ${{ secrets.VITE_APP_URL }}
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1.8
         env:
-          GITHUB_TOKEN: ${ secrets.GITHUB_TOKEN } # Needed to get PR information, if any
-          SONAR_TOKEN: ${ secrets.SONAR_TOKEN }
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

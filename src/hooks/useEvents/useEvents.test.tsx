@@ -9,6 +9,11 @@ import {
   isDeletedEvent,
   isNotDeletedEvent,
 } from "../../components/Modal/feedback";
+import { vi } from "vitest";
+
+beforeEach(() => {
+  vi.clearAllMocks();
+});
 
 describe("Given a useEvents custom hook", () => {
   describe("When is called with the getEvents function", () => {
@@ -70,7 +75,7 @@ describe("Given a deleteEvent custom hook", () => {
     test("Then it should show a modal with the text 'Event coudn't be deleted'", async () => {
       server.resetHandlers(...errorHandlers);
 
-      const id = "2918191";
+      const id = eventsMocks[0].id;
 
       const {
         result: {
