@@ -12,16 +12,16 @@ import { LoggedStateUserMock } from "../../mocks/userMocks.js";
 
 describe("Given a Navigation component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show 3 links: logout, create and home", () => {
-      const create = "create";
+    test("Then it should show 3 links: logout, add and home", () => {
+      const add = "add";
       const home = "home";
 
       renderWithProviders(wrapWithRouter(<Navigation />));
 
-      const createLink = screen.getByRole("link", { name: create });
+      const addLink = screen.getByRole("link", { name: add });
       const homeLink = screen.getByRole("link", { name: home });
 
-      expect(createLink).toBeInTheDocument();
+      expect(addLink).toBeInTheDocument();
       expect(homeLink).toBeInTheDocument();
     });
   });

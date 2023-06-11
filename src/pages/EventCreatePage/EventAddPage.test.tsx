@@ -1,13 +1,13 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import EventsListPage from "./EventsListPage";
+import EventAddPage from "./EventAddPage";
 
-describe("Given a EventsListPage", () => {
+describe("Given an EventAddPage", () => {
   describe("When it is rendered", () => {
-    test("Then it should shows a Loginform with the title 'NOW IN BARCELONA'", () => {
-      const expectedText = "NOW IN BARCELONA";
+    test("Then it should shows the title 'ADD NEW EVENT'", () => {
+      const expectedText = "ADD NEW EVENT";
 
-      renderWithProviders(wrapWithRouter(<EventsListPage />));
+      renderWithProviders(wrapWithRouter(<EventAddPage />));
 
       const pageTitle = screen.getByRole("heading", {
         name: expectedText,
