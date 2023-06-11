@@ -7,6 +7,7 @@ import {
   LazyEventsListPage,
   LazyLoginPage,
 } from "./lazyComponents";
+import EventAddPage from "../pages/EventCreatePage/EventAddPage";
 
 const routes: RouteObject[] = [
   {
@@ -32,6 +33,10 @@ const routes: RouteObject[] = [
             <LazyEventsListPage />
           </Suspense>
         ),
+      },
+      {
+        path: `${paths.add}`,
+        element: <EventAddPage />,
       },
       {
         path: `*`,
