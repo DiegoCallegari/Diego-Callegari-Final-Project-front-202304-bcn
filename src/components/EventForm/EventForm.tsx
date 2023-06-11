@@ -1,8 +1,8 @@
-import EventAddFormStyled from "./EventAddFormStyled";
+import EventFormStyled from "./EventFormStyled";
 
-const EventAddForm = (): React.ReactElement => {
+const EventForm = (): React.ReactElement => {
   return (
-    <EventAddFormStyled>
+    <EventFormStyled>
       <label className="add-form__label" htmlFor="title">
         Title:
         <input className="add-form__input" type="text" id="title" />
@@ -70,8 +70,8 @@ const EventAddForm = (): React.ReactElement => {
       <button className="add-button" type="submit">
         Add
       </button>
-    </EventAddFormStyled>
+    </EventFormStyled>
   );
 };
 
-export default EventAddForm;
+export default EventForm;

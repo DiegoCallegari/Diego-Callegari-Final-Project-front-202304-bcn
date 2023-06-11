@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const EventAddFormStyled = styled.form`
+const EventFormStyled = styled.form`
   background-color: ${(props) => props.theme.colors.clean};
   font-family: ${(props) => props.theme.fonts.primary};
   width: 270px;
@@ -91,4 +91,4 @@ const EventAddFormStyled = styled.form`
   }
 `;
 
-export default EventAddFormStyled;
+export default EventFormStyled;
