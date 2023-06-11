@@ -7,7 +7,7 @@ import {
   LazyEventsListPage,
   LazyLoginPage,
 } from "./lazyComponents";
-import EventAddPage from "../pages/EventCreatePage/EventAddPage";
+import EventAddPage from "../pages/EventAddPage/EventAddPage";
 
 const routes: RouteObject[] = [
   {

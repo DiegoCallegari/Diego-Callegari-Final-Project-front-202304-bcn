@@ -6,8 +6,8 @@ const EventAddPageStyed = styled.main`
   align-items: center;
   width: 100%;
   min-width: 320px;
-  gap: 5px;
-  padding-bottom: 70px;
+  gap: 20px;
+  padding-bottom: 80px;
 
   .page-title {
     width: 100%;
