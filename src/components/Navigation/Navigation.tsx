@@ -38,13 +38,13 @@ const Navigation = (): React.ReactElement => {
           />
         </NavLink>
       )}
-      <NavLink to="/create" aria-label="create" title="create">
+      <NavLink to="/add" aria-label="add" title="add">
         <img
           width={48}
           height={48}
           className="navigation-icon"
           src="images/create-link.svg"
-          alt="create"
+          alt="add"
         />
       </NavLink>
       <NavLink to="/" aria-label="home" title="home">
