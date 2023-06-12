@@ -1,11 +1,57 @@
+import { useState } from "react";
+import { EventDataStructure } from "../../store/events/types";
 import EventFormStyled from "./EventFormStyled";
 
-const EventForm = (): React.ReactElement => {
+interface EventFormProps {
+  submitEventForm: (eventData: Partial<EventDataStructure>) => void;
+}
+
+const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
+  const initialEventState: Partial<EventDataStructure> = {
+    title: "",
+    image: "",
+    neighbourhood: "",
+    description: "",
+    date: "",
+  };
+
+  const [eventData, setEventData] = useState(initialEventState);
+
+  const handleOnChange = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setEventData({
+      ...eventData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const handleOnSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    submitEventForm(eventData);
+  };
+
+  const isFilled =
+    eventData.title !== "" &&
+    eventData.image !== "" &&
+    eventData.neighbourhood !== "" &&
+    eventData.description !== "" &&
+    eventData.date !== "";
+
   return (
-    <EventFormStyled>
+    <EventFormStyled onSubmit={handleOnSubmit}>
       <label className="add-form__label" htmlFor="title">
         Title:
-        <input className="add-form__input" type="text" id="title" />
+        <input
+          className="add-form__input"
+          type="text"
+          id="title"
+          onChange={handleOnChange}
+          value={eventData.title}
+        />
       </label>
 
       <label className="add-form__label" htmlFor="description">
@@ -14,14 +60,22 @@ const EventForm = (): React.ReactElement => {
           name="description"
           id="description"
           className="add-form__description"
+          onChange={handleOnChange}
+          value={eventData.description}
         ></textarea>
       </label>
 
       <div className="add-form__label add-form__where">
-        <label className="add-form__label" htmlFor="where">
+        <label className="add-form__label" htmlFor="neighbourhood">
           Where:
         </label>
-        <select id="where" className="add-form__input">
+        <select
+          id="neighbourhood"
+          className="add-form__input"
+          onChange={handleOnChange}
+          value={eventData.neighbourhood}
+        >
+          <option value="">Neighbourhood</option>
           <option value="El Born">El Born</option>
           <option value="El Carmel">El Carmel</option>
           <option value="El Clot">El Clot</option>
@@ -29,9 +83,7 @@ const EventForm = (): React.ReactElement => {
           <option value="El Poble-sec">El Poble-sec</option>
           <option value="El Putxet i el Farró">El Putxet i el Farró</option>
           <option value="El Raval">El Raval</option>
-          <option value="El Gòtic (Barrio Gótico)">
-            El Gòtic (Barrio Gótico)
-          </option>
+          <option value="El Gòtic (Barrio Gótico)">El Gòtic</option>
           <option value="El Poblenou">El Poblenou</option>
           <option value="Gràcia">Gràcia</option>
           <option value="Horta">Horta</option>
@@ -52,22 +104,31 @@ const EventForm = (): React.ReactElement => {
       </div>
 
       <div className="add-form__label add-form__when">
-        <label className="add-form__label" htmlFor="when">
+        <label className="add-form__label" htmlFor="date">
           When:
         </label>
         <input
           type="date"
           className="add-form__label add-form__date"
-          id="when"
+          id="date"
+          onChange={handleOnChange}
+          value={eventData.date}
         />
       </div>
 
-      <label className="add-form__label" htmlFor="photo">
-        Photo:
-        <input className="add-form__input" type="text" id="title" />
+      <label className="add-form__label" htmlFor="image">
+        Image:
+        <input
+          className="add-form__input"
+          type="text"
+          id="image"
+          onChange={handleOnChange}
+          value={eventData.image}
+          placeholder="URL"
+        />
       </label>
 
-      <button className="add-button" type="submit">
+      <button className="add-button" type="submit" disabled={!isFilled}>
         Add
       </button>
     </EventFormStyled>
