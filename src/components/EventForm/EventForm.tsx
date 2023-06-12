@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { EventDataStructure } from "../../store/events/types";
+import { EventStructure } from "../../store/events/types";
 import EventFormStyled from "./EventFormStyled";
 
 interface EventFormProps {
-  submitEventForm: (eventData: Partial<EventDataStructure>) => void;
+  submitEventForm: (eventData: EventStructure) => void;
 }
 
 const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
-  const initialEventState: Partial<EventDataStructure> = {
+  const initialEventState: EventStructure = {
     title: "",
     image: "",
     neighbourhood: "",
