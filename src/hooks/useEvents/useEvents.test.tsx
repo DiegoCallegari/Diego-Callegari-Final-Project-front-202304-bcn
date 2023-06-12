@@ -1,12 +1,18 @@
 import { renderHook } from "@testing-library/react";
 import useEvents from "./useEvents";
 import { wrapper } from "../../utils/testUtils";
-import { eventsMocks } from "../../mocks/eventsMocks";
+import {
+  EventMockCardOne,
+  EventMockCardTwo,
+  eventsMocks,
+} from "../../mocks/eventsMocks";
 import { server } from "../../mocks/server";
 import { errorHandlers, handlers } from "../../mocks/handlers";
 import { store } from "../../store";
 import {
+  isCreatedEvent,
   isDeletedEvent,
+  isNotCreatedEvent,
   isNotDeletedEvent,
 } from "../../components/Modal/feedback";
 import { vi } from "vitest";
@@ -88,6 +94,66 @@ describe("Given a deleteEvent custom hook", () => {
       const text = store.getState().ui.modal.text;
 
       expect(text).toBe(isNotDeletedEvent.text);
+    });
+  });
+});
+
+describe("Given a addEvent fucntion", () => {
+  describe("When it's called with a new event data", () => {
+    test("Then it should show a succeed feedback modal with the title message 'Success'", async () => {
+      server.use(...handlers);
+
+      const expectedFeedbackTitle = isCreatedEvent.title;
+
+      const {
+        result: {
+          current: { addEvent },
+        },
+      } = renderHook(() => useEvents(), { wrapper: wrapper });
+
+      await addEvent(EventMockCardOne);
+
+      const title = store.getState().ui.modal.title;
+
+      expect(title).toBe(expectedFeedbackTitle);
+    });
+  });
+});
+
+describe("Given a addEvent fucntion", () => {
+  describe("When it's called with a new event data 'Concert'", () => {
+    test("Then it should return the card of the new event 'Concert'", async () => {
+      const expectedNewEvent = EventMockCardOne;
+
+      const {
+        result: {
+          current: { addEvent },
+        },
+      } = renderHook(() => useEvents(), { wrapper: wrapper });
+
+      const response = await addEvent(EventMockCardTwo);
+
+      expect(response).toStrictEqual(expectedNewEvent);
+    });
+  });
+
+  describe("When it's called but there was a problem on adding the new event", () => {
+    test("Then it should show a feedback message with the text 'Event is not created'", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const event = EventMockCardOne;
+
+      const {
+        result: {
+          current: { addEvent },
+        },
+      } = renderHook(() => useEvents(), { wrapper: wrapper });
+
+      await addEvent(event);
+
+      const message = store.getState().ui.modal.text;
+
+      expect(message).toBe(isNotCreatedEvent.text);
     });
   });
 });
