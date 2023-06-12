@@ -23,11 +23,20 @@ const eventSlice = createSlice({
         (event) => event.id !== action.payload.idEvent
       ),
     }),
+
+    addEvent: (
+      currentEvent: EventState,
+      action: PayloadAction<EventDataStructure>
+    ): EventState => ({
+      ...currentEvent,
+      events: [...currentEvent.events, action.payload],
+    }),
   },
 });
 
 export const {
   loadEvents: loadEventsActionCreator,
   deleteEvent: deleteEventActionCreator,
+  addEvent: addEventActionCreator,
 } = eventSlice.actions;
 export const eventReducer = eventSlice.reducer;

@@ -28,11 +28,9 @@ export const handlers = [
 ];
 
 export const errorHandlers = [
-  rest.post(`${apiUrl}/user/login`, (_req, res, ctx) => {
-    return res(ctx.status(401));
-  }),
+  rest.post(`${apiUrl}/user/login`, (_req, res, ctx) => res(ctx.status(401))),
 
-  rest.delete(`$${apiUrl}${paths.events}/*}`, (_req, res, ctx) => {
+  rest.delete(`$${apiUrl}${paths.events}/:id}`, (_req, res, ctx) => {
     return res(ctx.status(404));
   }),
 ];
