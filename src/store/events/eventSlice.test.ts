@@ -1,5 +1,6 @@
 import { eventsMocks } from "../../mocks/eventsMocks";
 import {
+  addEventActionCreator,
   deleteEventActionCreator,
   eventReducer,
   loadEventsActionCreator,
@@ -44,6 +45,21 @@ describe("Given an eventReducer", () => {
       );
 
       expect(newEventState).toStrictEqual(expectedNewEventState);
+    });
+  });
+
+  describe("When an EventsForm calls addEvents function", () => {
+    test("Then it should shows a list with the new event add", async () => {
+      const currentEvent: EventState = {
+        events: [eventsMocks[0]],
+      };
+
+      const newEventState: EventState = eventReducer(
+        currentEvent,
+        addEventActionCreator(eventsMocks[1])
+      );
+
+      expect(newEventState).toStrictEqual({ events: eventsMocks });
     });
   });
 });
