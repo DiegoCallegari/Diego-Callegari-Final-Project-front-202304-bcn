@@ -9,3 +9,7 @@ export const LazyEventsListPage = lazy(
 export const LazyEventNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage")
 );
+
+export const LazyEventAddPage = lazy(
+  () => import("../pages/EventAddPage/EventAddPage")
+);

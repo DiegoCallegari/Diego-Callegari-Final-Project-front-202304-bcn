@@ -4,7 +4,6 @@ export interface EventDataStructure {
   neighbourhood: string;
   description: string;
   date: string;
-  category: string;
   id: string;
 }
 
@@ -14,4 +13,12 @@ export interface EventState {
 
 export interface EventIdStructure {
   idEvent: string;
+}
+
+export interface EventStructure {
+  title: string;
+  image: string;
+  neighbourhood: string;
+  description: string;
+  date: string;
 }
