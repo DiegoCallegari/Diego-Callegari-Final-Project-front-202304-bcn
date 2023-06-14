@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import EventAddPage from "./EventAddPage";
@@ -8,10 +8,6 @@ import {
   createMemoryRouter,
 } from "react-router-dom";
 import EventsListPage from "../EventsListPage/EventsListPage";
-import { Provider } from "react-redux";
-import { ThemeProvider } from "styled-components";
-import { store } from "../../store";
-import theme from "../../styles/theme/theme";
 
 describe("Given an EventAddPage", () => {
   describe("When it is rendered", () => {
@@ -31,7 +27,7 @@ describe("Given an EventAddPage", () => {
 
   describe("When it is rendered and the handleOnClick function is invoked", () => {
     test("Then it should redirect the user to the home page and show the title 'NOW IN BARCELONA'", async () => {
-      const expectedTitle = "ADD NEW EVENT";
+      const expectedTitle = /now in barcelona/i;
 
       const routes: RouteObject[] = [
         { path: "/", element: <EventAddPage /> },
@@ -40,43 +36,45 @@ describe("Given an EventAddPage", () => {
 
       const router = createMemoryRouter(routes);
 
-      render(
-        <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <RouterProvider router={router} />
-          </ThemeProvider>
-        </Provider>
-      );
+      renderWithProviders(<RouterProvider router={router} />);
 
-      const titleLabel = "Title:";
-      const descriptionLabel = "Description:";
-      const whereLabel = "Where:";
-      const whenLabel = "When:";
-      const imageLabel = "Image:";
+      const titleLabel = /title:/i;
+      const descriptionLabel = /description:/i;
+      const whereLabel = /where:/i;
+      const whenLabel = /when/i;
+      const imageLabel = /image/i;
+
+      const titleInputField = screen.getByLabelText(titleLabel);
+      const descriptionInputField = screen.getByLabelText(descriptionLabel);
+      const whereInputField = screen.getByLabelText(whereLabel);
+      const whenInputField = screen.getByLabelText(whenLabel);
+      const imageInputField = screen.getByLabelText(imageLabel);
 
       const titleTextField = "Concert in the park";
       const descriptionTextField = "A very good afternoon of music";
-      const whereTextField = "Park de la Ciutadela";
-      const whenTextField = "12/06/2023";
-      const imageTextField = "http://example";
+      const whereTextField = "El Born";
+      const whenDate = "2023-07-03";
+      const imageTextField =
+        "https://cdn.discordapp.com/attachments/1096796306695008286/1115235166374350878/concierto.jpeg";
 
-      await userEvent.type(screen.getByLabelText(titleLabel), titleTextField);
-      await userEvent.type(
-        screen.getByLabelText(descriptionLabel),
-        descriptionTextField
-      );
-      await userEvent.type(screen.getByLabelText(whereLabel), whereTextField);
-      await userEvent.type(screen.getByLabelText(whenLabel), whenTextField);
-      await userEvent.type(screen.getByLabelText(imageLabel), imageTextField);
+      await userEvent.type(titleInputField, titleTextField);
+      await userEvent.type(descriptionInputField, descriptionTextField);
+      await userEvent.selectOptions(whereInputField, whereTextField);
+      await userEvent.type(whenInputField, whenDate);
+      await userEvent.type(imageInputField, imageTextField);
 
-      const addButton = screen.getByRole("button", { name: "Add" });
+      const submitButton = screen.getByRole("button", { name: "Add" });
 
-      await userEvent.click(addButton);
+      expect(submitButton).toBeEnabled();
 
-      const title = screen.getByRole("heading", { name: expectedTitle });
+      await userEvent.click(submitButton);
 
-      expect(router.state.location.pathname).toBe("/");
-      expect(title).toBeInTheDocument();
+      const expectedHeading = screen.getByRole("heading", {
+        name: expectedTitle,
+      });
+
+      expect(router.state.location.pathname).toBe("/home");
+      expect(expectedHeading).toBeInTheDocument();
     });
   });
 });
