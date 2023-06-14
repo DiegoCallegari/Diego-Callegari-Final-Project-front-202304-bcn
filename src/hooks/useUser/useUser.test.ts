@@ -1,10 +1,10 @@
 import { renderHook } from "@testing-library/react";
-import useUser from "../useUser/useUser.js";
-import { UserCredentialsMock, tokenMock } from "../../mocks/userMocks.js";
-import { server } from "../../mocks/server.js";
-import { errorHandlers } from "../../mocks/handlers.js";
-import { UserCredentials } from "../../store/user/types.js";
-import { wrapper } from "../../utils/testUtils.js";
+import useUser from "../useUser/useUser";
+import { UserCredentialsMock, tokenMock } from "../../mocks/userMocks";
+import { server } from "../../mocks/server";
+import { errorHandlers } from "../../mocks/handlers";
+import { UserCredentials } from "../../store/user/types";
+import { wrapper } from "../../utils/testUtils";
 
 describe("Given a useUser custom hook", () => {
   describe("When calls getToken function with a valid username and password", () => {

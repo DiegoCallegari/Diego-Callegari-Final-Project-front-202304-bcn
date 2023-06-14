@@ -54,7 +54,7 @@ const useEvents = () => {
           text: notAvailableList.text,
         })
       );
-      throw new Error("Can't get the list of events at this moment");
+      throw new Error(notAvailableList.text);
     }
   }, [dispatch]);
 

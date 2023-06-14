@@ -37,7 +37,7 @@ describe("Given a useEvents custom hook", () => {
     });
 
     describe("When it calls with the getEvents function but it's not possible to connect to Api Rest", () => {
-      test("Then it should return an error message 'Can't get the list of events at this moment'", async () => {
+      test("Then it should return an error message 'Can't get the list of events'", async () => {
         server.resetHandlers(...errorHandlers);
 
         const expectedError = "Can't get the list of events";
@@ -101,8 +101,6 @@ describe("Given a deleteEvent custom hook", () => {
 describe("Given a addEvent fucntion", () => {
   describe("When it's called with a new event data", () => {
     test("Then it should show a succeed feedback modal with the title message 'Success'", async () => {
-      server.use(...handlers);
-
       const expectedFeedbackTitle = isCreatedEvent.title;
 
       const {

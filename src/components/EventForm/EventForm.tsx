@@ -42,7 +42,7 @@ const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
     eventData.date === "";
 
   return (
-    <EventFormStyled onSubmit={handleOnSubmit}>
+    <EventFormStyled onSubmit={handleOnSubmit} autoComplete="off">
       <label className="add-form__label" htmlFor="title">
         Title:
         <input
@@ -76,6 +76,7 @@ const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
           value={eventData.neighbourhood}
         >
           <option hidden>Neighbourhood</option>
+          <option value="Dreta de`l Eixample">Dreta de`l Eixample</option>
           <option value="El Born">El Born</option>
           <option value="El Carmel">El Carmel</option>
           <option value="El Clot">El Clot</option>
@@ -85,6 +86,7 @@ const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
           <option value="El Raval">El Raval</option>
           <option value="El Gòtic (Barrio Gótico)">El Gòtic</option>
           <option value="El Poblenou">El Poblenou</option>
+          <option value="Esquerra de`l Eixample">Esquerra de`l Eixample</option>
           <option value="Gràcia">Gràcia</option>
           <option value="Horta">Horta</option>
           <option value="La Barceloneta">La Barceloneta</option>
