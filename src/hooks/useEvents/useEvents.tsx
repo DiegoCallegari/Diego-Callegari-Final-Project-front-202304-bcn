@@ -25,7 +25,7 @@ const useEvents = () => {
   const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
-  const req = {
+  const reqConfigAuthorization = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -58,11 +58,14 @@ const useEvents = () => {
     }
   }, [dispatch]);
 
-  const deleteEvent = async (id: string) => {
+  const deleteEvent = async (idEvent: string) => {
     try {
       dispatch(showLoadingActionCreator());
 
-      await axios.delete(`${apiUrl}/events/${id}`);
+      await axios.delete(
+        `${apiUrl}${paths.events}/${idEvent}`,
+        reqConfigAuthorization
+      );
 
       dispatch(hideLoadingActionCreator());
 
@@ -99,7 +102,7 @@ const useEvents = () => {
       } = await axios.post<{ event: EventDataStructure }>(
         `${apiUrl}${paths.events}${paths.add}`,
         eventData,
-        req
+        reqConfigAuthorization
       );
 
       dispatch(hideLoadingActionCreator());

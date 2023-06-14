@@ -26,7 +26,7 @@ describe("Given a useUser custom hook", () => {
 
   describe("When it calls getUserToken with invalid credentials", () => {
     test("Then it should return a response method status with a 401", async () => {
-      server.resetHandlers(...errorHandlers);
+      server.use(...errorHandlers);
 
       const invalidUser: UserCredentials = {
         username: "Antony",

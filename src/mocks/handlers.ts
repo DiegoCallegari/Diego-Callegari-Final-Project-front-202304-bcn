@@ -27,7 +27,7 @@ export const handlers = [
   ),
 
   rest.post(`${apiUrl}${paths.events}${paths.add}`, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ event: EventMockCardOne }));
+    return res(ctx.status(201), ctx.json({ event: EventMockCardOne }));
   }),
 ];
 

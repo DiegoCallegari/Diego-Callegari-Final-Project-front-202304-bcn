@@ -15,15 +15,23 @@ const ModalStyled = styled.section`
   .modal-feedback {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     width: 250px;
     min-height: 100px;
-    border: 1px solid ${(props) => props.theme.colors.redLight};
     border-radius: 15px;
     background-color: ${(props) => props.theme.colors.clean};
     padding: 10px;
 
+    &--error {
+      border: 1px solid ${(props) => props.theme.colors.redLight};
+    }
+
+    &--success {
+      border: 1px solid ${(props) => props.theme.colors.confirm};
+    }
+
     &__describe {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
