@@ -34,12 +34,12 @@ const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
     submitEventForm(eventData);
   };
 
-  const isFilled =
-    eventData.title !== "" &&
-    eventData.image !== "" &&
-    eventData.neighbourhood !== "" &&
-    eventData.description !== "" &&
-    eventData.date !== "";
+  const isDisabled =
+    eventData.title === "" ||
+    eventData.image === "" ||
+    eventData.neighbourhood === "" ||
+    eventData.description === "" ||
+    eventData.date === "";
 
   return (
     <EventFormStyled onSubmit={handleOnSubmit}>
@@ -75,7 +75,7 @@ const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
           onChange={handleOnChange}
           value={eventData.neighbourhood}
         >
-          <option value="">Neighbourhood</option>
+          <option hidden>Neighbourhood</option>
           <option value="El Born">El Born</option>
           <option value="El Carmel">El Carmel</option>
           <option value="El Clot">El Clot</option>
@@ -128,7 +128,7 @@ const EventForm = ({ submitEventForm }: EventFormProps): React.ReactElement => {
         />
       </label>
 
-      <button className="add-button" type="submit" disabled={!isFilled}>
+      <button className="add-button" type="submit" disabled={isDisabled}>
         Add
       </button>
     </EventFormStyled>
