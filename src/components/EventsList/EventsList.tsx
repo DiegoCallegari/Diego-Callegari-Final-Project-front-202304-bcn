@@ -21,7 +21,7 @@ const EventList = (): React.ReactElement => {
         <li key={event.id}>
           <EventCard
             event={event}
-            isLazy={index < 1 ? "eager" : "lazy"}
+            isLazy={index < 3 ? "eager" : "lazy"}
             actionOnClick={deleteOnClick}
           />
         </li>
