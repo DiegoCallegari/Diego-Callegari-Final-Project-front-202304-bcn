@@ -71,6 +71,7 @@ const EventFormStyled = styled.form`
       height: 100px;
       font-size: ${(props) => props.theme.fontSizes.small};
       font-family: inherit;
+      text-indent: 7px;
     }
   }
 

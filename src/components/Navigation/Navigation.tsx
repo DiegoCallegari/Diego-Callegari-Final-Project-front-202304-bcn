@@ -23,7 +23,7 @@ const Navigation = (): React.ReactElement => {
             width={50}
             height={50}
             className="logout-icon"
-            src="images/logout-icon.svg"
+            src="/images/logout-icon.svg"
             alt="logout"
           />
         </button>
@@ -33,21 +33,23 @@ const Navigation = (): React.ReactElement => {
             width={48}
             height={48}
             className="navigation-icon"
-            src="images/login-link.svg"
+            src="/images/login-link.svg"
             alt="login"
           />
         </NavLink>
       )}
-      <NavLink to="/add" aria-label="add" title="add">
-        <img
-          width={48}
-          height={48}
-          className="navigation-icon"
-          src="images/create-link.svg"
-          alt="add"
-        />
-      </NavLink>
-      <NavLink to="/" aria-label="home" title="home">
+      {isLogged && (
+        <NavLink to="/add" aria-label="add" title="add">
+          <img
+            width={48}
+            height={48}
+            className="navigation-icon"
+            src="/images/create-link.svg"
+            alt="add"
+          />
+        </NavLink>
+      )}
+      <NavLink to="/home" aria-label="home" title="home">
         <img
           width={48}
           height={48}

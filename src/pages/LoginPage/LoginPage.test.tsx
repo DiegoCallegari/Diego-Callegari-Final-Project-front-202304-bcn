@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import LoginPage from "./LoginPage";
-import paths from "../../routers/paths";
+import EventsListPage from "../EventsListPage/EventsListPage";
 
 describe("Given a LoginPage", () => {
   describe("When it is rendered", () => {
@@ -28,12 +28,13 @@ describe("Given a LoginPage", () => {
 
 describe("Given a LoginPage component", () => {
   describe("When the user clicks the 'Login' button", () => {
-    test("Then it should log in the user and redirects him to the '/' path", async () => {
+    test("Then it should log in the user and redirects him to the '/home' path", async () => {
       const usernameText = "Username:";
       const passwordText = "Password:";
-      const usernameInputText = "Username";
-      const passwordInputText = "Password";
+      const usernameInputText = "Anna";
+      const passwordInputText = "123";
       const buttonText = "Login";
+      const eventsListPageTitle = /now in barcelona/i;
 
       const route: RouteObject[] = [
         {
@@ -42,6 +43,7 @@ describe("Given a LoginPage component", () => {
         },
         {
           path: "/home",
+          element: <EventsListPage />,
         },
       ];
 
@@ -57,7 +59,11 @@ describe("Given a LoginPage component", () => {
       await userEvent.type(passwordTextField, passwordInputText);
       await userEvent.click(loginButton);
 
-      expect(router.state.location.pathname).toStrictEqual(paths.home);
+      const expectedTitle = screen.getByRole("heading", {
+        name: eventsListPageTitle,
+      });
+
+      expect(expectedTitle).toBeInTheDocument();
     });
   });
 });

@@ -5,6 +5,7 @@ export interface EventDataStructure {
   description: string;
   date: string;
   id: string;
+  user?: string;
 }
 
 export interface EventState {

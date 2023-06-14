@@ -20,8 +20,8 @@ const Modal = (): React.ReactElement => {
   return (
     <ModalStyled aria-label="feedback modal">
       <div
-        className={`modal-feedback modal-feedback__title${
-          isError ? "modal-feedback__title--error" : ""
+        className={`modal-feedback modal-feedback${
+          isError ? "--error" : "--success"
         }`}
       >
         <section className="modal-feedback__describe">
