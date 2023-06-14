@@ -13,8 +13,15 @@ const NavigationStyled = styled.nav`
   position: fixed;
   bottom: 0;
 
+  .active {
+    border-bottom: 3px solid ${(props) => props.theme.colors.redLight};
+  }
+
   .navigation-icon {
     color: ${(props) => props.theme.colors.clean};
+  }
+
+  .button {
   }
 `;
 
