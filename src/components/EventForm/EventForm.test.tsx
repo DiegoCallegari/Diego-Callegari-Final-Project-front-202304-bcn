@@ -166,7 +166,6 @@ describe("When it is rendered and all the input fields are compleated", () => {
     await userEvent.selectOptions(whereInputField, whereTextField);
     await userEvent.type(whenInputField, whenDate);
     await userEvent.type(imageInputField, imageTextField);
-    screen.debug();
     const submitButton = screen.getByRole("button", { name: "Add" });
 
     expect(submitButton).toBeEnabled();
