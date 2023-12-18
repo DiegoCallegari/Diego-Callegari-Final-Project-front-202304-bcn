@@ -32,7 +32,22 @@ The frontend application utilizes the following technologies:
 - Node.js: JavaScript runtime environment.
   npm: Node.js package manager.
 
-## Licence
+## Available Scripts
+
+- npm run dev: Starts a development server.
+- npm run build: Builds the application.
+- npm run preview: Runs the built app.
+- npm run lint: Runs ESLint.
+- npm run test: Runs unit tests for the application.
+- npm run test:coverage: Displays the application's test coverage.
+
+## Setup
+
+Clone this repository Que Fem Repository and install its dependencies using the command npm i.
+
+Start a development server using the command npm run dev.
+
+Navigate to the appropriate link on your localhost.
 
 ## Contribuition
 
@@ -43,6 +58,8 @@ If you would like to contribute to this project, follow these steps:
 - Make the necessary changes in your branch.
 - Submit a pull request with your changes.
 
-## Contact
+## Autor
 
-### If you have some question or suggestion for this project, you can contact us by the e-mail callcallegari@gmail.com
+- [@DiegoCallegari](https://github.com/DiegoCallegari)
+
+If you have some question or suggestion for this project, you can contact us by the e-mail callcallegari@gmail.com
